@@ -2,11 +2,11 @@ digraph g {
   stylesheet = "./db.css"
   graph[
     rankdir = "LR"
-    splines = "polyline"
+    splines = "spline"
   ];
   node[
-    fontsize = "14"
-    margin = 0.15
+    fontsize = "12"
+    margin = "0.3,0.06"
     fontname = "verdana"
     shape = "record"
   ];

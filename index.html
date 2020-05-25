@@ -2,27 +2,64 @@
 <html>
 <head>
 <title>Inter repository dependencies</title>
+<script src="//d3js.org/d3.v5.min.js"></script>
+<script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+<script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
 <script>
+    let minimizedGraph = '';
+    let expandedGraph;
     window.onload = (_ev) =>
     {
-        let img = document.querySelector('img');
-        let svg = fetch(img.src)
+        let svg = fetch("./db.dot")
             .then(response => response.text())
             .then(text => {
                 // Add link element pointing to stylesheet header
-                let styleSheet = text.match(/href="([^"]*css)"/)[1];
-                let linkEl = document.createElementNS('http://www.w3.org/1999/xhtml', 'link');
+                const styleSheet = text.match(/stylesheet = "([^"]*css)"/)[1];
+                const linkEl = document.createElementNS('http://www.w3.org/1999/xhtml', 'link');
                 linkEl.setAttribute('rel', 'stylesheet');
                 linkEl.setAttribute('href', styleSheet);
                 linkEl.setAttribute('type', 'text/css');
                 document.head.appendChild(linkEl);
-                // Replace img element with svg
-                img.outerHTML = text;
+                expandedGraph = text;
+                // Suppress sub-components
+                let tmpGraph = text.replace(/label = .*/g, 'label = "\\N"');
+                // Suppress intra-component links
+                tmpGraph = tmpGraph.replace(/^.* -> .*\[color="grey"\]$/gm, '');
+                // Remove sub-component parts in links
+                tmpGraph = tmpGraph.replace(/^([^:]*):.* -> ([^:]*):.*$/gm, '$1 -> $2');
+                // Remove duplicate links
+                const set = new Set();
+                tmpGraph.split(/\r?\n/).forEach((line) => {
+                    if (line.match(/^.* -> .*$/)) {
+                        // Link line => add it only if it hasn't been already added
+                        if (!set.has(line)) {
+                            set.add(line);
+                            minimizedGraph += `${line}\n`;
+                        }
+                    } else {
+                        // Not a link line => add it anyway
+                        minimizedGraph += `${line}\n`;
+                    }
+                });
+                showGraph();
             })
+    }
+    // Render graph in div element
+    function showGraph() {
+        let text = document.getElementById("expanded").checked ? expandedGraph : minimizedGraph;
+        const splines = document.getElementById("splines").checked ? "spline" : "polyline"
+        text = text.replace(/splines = .*/, `splines = "${splines}"`);
+        d3.select("#graph").graphviz().renderDot(text);
     }
 </script>
 </head>
 <body>
-<img src="./db.svg" />
+    <input type="checkbox" id="expanded" name="expanded" checked onclick="showGraph()">
+    <label for="expanded">Show / Hide sub-components</label>
+    <br/>
+    <input type="checkbox" id="splines" name="splines" checked onclick="showGraph()">
+    <label for="expanded">Splines / Polylines</label>
+    <br/>
+    <div id="graph" style="text-align: center;"></div>
 </body>
 </html>
