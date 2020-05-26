@@ -54,7 +54,7 @@ digraph g {
 ]
 
 "safe_client_libs" [
-  label = "<K_safe_client_libs> \N|<K_safe_app> safe_app|<K_safe_authenticator> safe_authenticator|<K_safe_authenticator_ffi> safe_authenticator_ffi|<K_safe_core> safe_core"
+  label = "<K_safe_client_libs> \N"
 ]
 
 "self_encryption" [
@@ -72,37 +72,16 @@ digraph g {
 "safe_app_csharp":"K_SafeApp.AppBindings" -> "safe_app_csharp":"K_SafeApp.Core"	[color="grey"]
 "safe_app_csharp":"K_SafeApp.AppBindings" -> "safe-api":"K_safe-ffi"
 "safe-mobile-browser":"K_safe-mobile-browser" -> "safe_app_csharp":"K_safe_app_csharp"
-"safe_client_libs":"K_safe_app" -> "safe-nd":"K_safe-nd"
-"safe_client_libs":"K_safe_app" -> "safe_client_libs":"K_safe_authenticator"	[color="grey"]
-"safe_client_libs":"K_safe_app" -> "safe_client_libs":"K_safe_core"	[color="grey"]
-"safe_client_libs":"K_safe_app" -> "self_encryption":"K_self_encryption"
-"safe_client_libs":"K_safe_core" -> "quic-p2p":"K_quic-p2p"
-"safe_client_libs":"K_safe_core" -> "safe-nd":"K_safe-nd"
-"safe_client_libs":"K_safe_core" -> "self_encryption":"K_self_encryption"
 "routing":"K_routing" -> "parsec":"K_parsec"
 "routing":"K_routing" -> "quic-p2p":"K_quic-p2p"
 "safe-api":"K_safe-authd" -> "safe-api":"K_jsonrpc-quic"	[color="grey"]
 "safe-api":"K_safe-authd" -> "safe-api":"K_safe-api"	[color="grey"]
 "safe_app_csharp":"K_SafeApp" -> "safe_app_csharp":"K_SafeApp.AppBindings"	[color="grey"]
 "safe_app_csharp":"K_SafeApp" -> "safe_app_csharp":"K_SafeApp.Core"	[color="grey"]
-"safe_browser":"K_safe_browser" -> "safe-nodejs":"K_safe-nodejs"
-"safe_vault":"K_safe_vault" -> "routing":"K_routing"
-"safe_vault":"K_safe_vault" -> "safe-nd":"K_safe-nd"
 "safe-api":"K_safe-ffi" -> "safe-api":"K_safe-api"	[color="grey"]
 "safe-api":"K_safe-ffi" -> "safe-nd":"K_safe-nd"
-"safe-api":"K_safe-ffi" -> "safe_client_libs":"K_safe_authenticator_ffi"
-"safe-api":"K_safe-ffi" -> "safe_client_libs":"K_safe_core"
 "safe-nodejs":"K_native" -> "safe-api":"K_safe-api"
-"safe_client_libs":"K_safe_authenticator" -> "safe-nd":"K_safe-nd"
-"safe_client_libs":"K_safe_authenticator" -> "safe_client_libs":"K_safe_core"	[color="grey"]
-"safe_client_libs":"K_safe_authenticator_ffi" -> "safe-nd":"K_safe-nd"
-"safe_client_libs":"K_safe_authenticator_ffi" -> "safe_client_libs":"K_safe_authenticator"	[color="grey"]
-"safe_client_libs":"K_safe_authenticator_ffi" -> "safe_client_libs":"K_safe_core"	[color="grey"]
 "safe-api":"K_safe-cli" -> "safe-api":"K_safe-api"	[color="grey"]
 "safe-api":"K_safe-api" -> "safe-api":"K_jsonrpc-quic"	[color="grey"]
 "safe-api":"K_safe-api" -> "safe-nd":"K_safe-nd"
-"safe-api":"K_safe-api" -> "safe_client_libs":"K_safe_app"
-"safe-api":"K_safe-api" -> "safe_client_libs":"K_safe_authenticator"
-"safe-api":"K_safe-api" -> "safe_client_libs":"K_safe_core"
-"safe-authenticator-mobile":"K_safe-authenticator-mobile" -> "safe_client_libs":"K_safe_authenticator_ffi"
 }
