@@ -89,7 +89,7 @@ digraph g {
 "safe-vault":"K_safe-vault" -> "safe-nd":"K_safe-nd"
 "safe-api":"K_safe-ffi" -> "safe-api":"K_safe-api"	[color="grey"]
 "safe-api":"K_safe-ffi" -> "safe-nd":"K_safe-nd"
-"safe-api":"K_safe-ffi" -> "safe-client-libs":"K_safe_authenticator_ffi"
+"safe-api":"K_safe-ffi" -> "safe-client-libs":"K_safe_authenticator"
 "safe-api":"K_safe-ffi" -> "safe-client-libs":"K_safe_core"
 "safe-nodejs":"K_native" -> "safe-api":"K_safe-api"
 "safe-client-libs":"K_safe_authenticator" -> "safe-nd":"K_safe-nd"
