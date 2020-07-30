@@ -30,7 +30,7 @@ digraph g {
 ]
 
 "safe-client-libs" [
-  label = "<K_safe-client-libs> \N|<K_safe_app> safe_app|<K_safe_authenticator> safe_authenticator|<K_safe_authenticator_ffi> safe_authenticator_ffi|<K_safe_core> safe_core"
+  label = "<K_safe-client-libs> \N|<K_safe_app> safe_app|<K_safe_authenticator> safe_authenticator|<K_safe_core> safe_core"
 ]
 
 "safe-vault" [
@@ -94,15 +94,11 @@ digraph g {
 "safe-nodejs":"K_native" -> "safe-api":"K_safe-api"
 "safe-client-libs":"K_safe_authenticator" -> "safe-nd":"K_safe-nd"
 "safe-client-libs":"K_safe_authenticator" -> "safe-client-libs":"K_safe_core"	[color="grey"]
-"safe-client-libs":"K_safe_authenticator_ffi" -> "safe-nd":"K_safe-nd"
-"safe-client-libs":"K_safe_authenticator_ffi" -> "safe-client-libs":"K_safe_authenticator"	[color="grey"]
-"safe-client-libs":"K_safe_authenticator_ffi" -> "safe-client-libs":"K_safe_core"	[color="grey"]
 "safe-api":"K_safe-cli" -> "safe-api":"K_safe-api"	[color="grey"]
 "safe-api":"K_safe-api" -> "safe-api":"K_jsonrpc-quic"	[color="grey"]
 "safe-api":"K_safe-api" -> "safe-nd":"K_safe-nd"
 "safe-api":"K_safe-api" -> "safe-client-libs":"K_safe_app"
 "safe-api":"K_safe-api" -> "safe-client-libs":"K_safe_authenticator"
 "safe-api":"K_safe-api" -> "safe-client-libs":"K_safe_core"
-"safe-authenticator-mobile":"K_safe-authenticator-mobile" -> "safe-client-libs":"K_safe_authenticator_ffi"
 "safe-browser":"K_safe-browser" -> "safe-nodejs":"K_safe-nodejs"
 }
