@@ -81,6 +81,7 @@ digraph g {
 "safe-api":"K_safe-authd" -> "safe-api":"K_safe-api"	[color="grey"]
 "safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.AppBindings"	[color="grey"]
 "safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.Core"	[color="grey"]
+"safe-vault":"K_safe-vault" -> "quic-p2p":"K_quic-p2p"
 "safe-vault":"K_safe-vault" -> "routing":"K_routing"
 "safe-vault":"K_safe-vault" -> "safe-nd":"K_safe-nd"
 "safe-api":"K_safe-ffi" -> "safe-api":"K_safe-api"	[color="grey"]
