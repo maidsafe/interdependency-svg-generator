@@ -46,7 +46,7 @@ digraph g {
 ]
 
 "safe-nodejs" [
-  label = "<K_safe-nodejs> \N|<K_native> native"
+  label = "<K_safe-nodejs> \N"
 ]
 
 "safe-app-csharp" [
@@ -86,7 +86,6 @@ digraph g {
 "safe-vault":"K_safe-vault" -> "safe-nd":"K_safe-nd"
 "safe-api":"K_safe-ffi" -> "safe-api":"K_safe-api"	[color="grey"]
 "safe-api":"K_safe-ffi" -> "safe-nd":"K_safe-nd"
-"safe-nodejs":"K_native" -> "safe-api":"K_safe-api"
 "safe-api":"K_safe-cli" -> "safe-api":"K_safe-api"	[color="grey"]
 "safe-api":"K_safe-api" -> "safe-api":"K_jsonrpc-quic"	[color="grey"]
 "safe-api":"K_safe-api" -> "safe-nd":"K_safe-nd"
