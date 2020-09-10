@@ -62,7 +62,7 @@ digraph g {
 ]
 
 "safe-api" [
-  label = "\N|<K_safe-cli> safe-cli|<K_safe-api> safe-api|<K_safe-ffi> safe-ffi|<K_safe-authd> safe-authd|<K_jsonrpc-quic> jsonrpc-quic"
+  label = "\N"
 ]
 
 "safe-browser" [
@@ -70,19 +70,11 @@ digraph g {
 ]
 
 "safe-app-csharp":"K_SafeApp.AppBindings" -> "safe-app-csharp":"K_SafeApp.Core"	[color="grey"]
-"safe-app-csharp":"K_SafeApp.AppBindings" -> "safe-api":"K_safe-ffi"
 "safe-mobile-browser":"K_safe-mobile-browser" -> "safe-app-csharp":"K_safe-app-csharp"
 "routing":"K_routing" -> "quic-p2p":"K_quic-p2p"
 "safe-client-libs":"K_safe-client-libs" -> "self_encryption":"K_self_encryption"
-"safe-api":"K_safe-authd" -> "safe-api":"K_jsonrpc-quic"	[color="grey"]
-"safe-api":"K_safe-authd" -> "safe-api":"K_safe-api"	[color="grey"]
 "safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.AppBindings"	[color="grey"]
 "safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.Core"	[color="grey"]
 "safe-vault":"K_safe-vault" -> "routing":"K_routing"
-"safe-api":"K_safe-ffi" -> "safe-api":"K_safe-api"	[color="grey"]
-"safe-api":"K_safe-ffi" -> "safe-nd":"K_safe-nd"
-"safe-api":"K_safe-cli" -> "safe-api":"K_safe-api"	[color="grey"]
-"safe-api":"K_safe-api" -> "safe-api":"K_jsonrpc-quic"	[color="grey"]
-"safe-api":"K_safe-api" -> "safe-nd":"K_safe-nd"
 "safe-browser":"K_safe-browser" -> "safe-nodejs":"K_safe-nodejs"
 }
