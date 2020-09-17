@@ -74,6 +74,4 @@ digraph g {
 "safe-client-libs":"K_safe-client-libs" -> "self_encryption":"K_self_encryption"
 "safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.AppBindings"	[color="grey"]
 "safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.Core"	[color="grey"]
-"safe-vault":"K_safe-vault" -> "routing":"K_routing"
-"safe-browser":"K_safe-browser" -> "safe-nodejs":"K_safe-nodejs"
 }
