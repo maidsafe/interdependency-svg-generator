@@ -71,7 +71,6 @@ digraph g {
 
 "safe-app-csharp":"K_SafeApp.AppBindings" -> "safe-app-csharp":"K_SafeApp.Core"	[color="grey"]
 "safe-mobile-browser":"K_safe-mobile-browser" -> "safe-app-csharp":"K_safe-app-csharp"
-"safe-client-libs":"K_safe-client-libs" -> "self_encryption":"K_self_encryption"
 "safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.AppBindings"	[color="grey"]
 "safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.Core"	[color="grey"]
 }
