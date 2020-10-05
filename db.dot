@@ -17,60 +17,85 @@ digraph g {
     arrowsize=0.5
   ];
 
-"safe-mobile-browser" [
-  label = "<K_safe-mobile-browser> \N"
+"sn_browser" [
+  label = "<K_sn_browser> \N"
 ]
 
-"parsec" [
-  label = "<K_parsec> \N"
+"bls_dkg" [
+  label = "<K_bls_dkg> \N"
 ]
 
-"routing" [
-  label = "<K_routing> \N"
+"sn_routing" [
+  label = "<K_sn_routing> \N"
 ]
 
-"safe-client-libs" [
-  label = "<K_safe-client-libs> \N"
+"qp2p" [
+  label = "<K_qp2p> \N"
 ]
 
-"safe-vault" [
-  label = "<K_safe-vault> \N"
+"sn_client" [
+  label = "<K_sn_client> \N"
 ]
 
-"safe-nd" [
-  label = "<K_safe-nd> \N"
+"sn_nodejs" [
+  label = "<K_sn_nodejs> \N|<K_native> native"
 ]
 
-"quic-p2p" [
-  label = "<K_quic-p2p> \N"
+"sn_data_types" [
+  label = "<K_sn_data_types> \N"
 ]
 
-"safe-nodejs" [
-  label = "<K_safe-nodejs> \N"
+"sn_mobile_browser" [
+  label = "<K_sn_mobile_browser> \N"
 ]
 
-"safe-app-csharp" [
-  label = "<K_safe-app-csharp> \N|<K_SafeApp> SafeApp|<K_SafeApp.AppBindings> SafeApp.AppBindings|<K_SafeApp.Core> SafeApp.Core"
+"sn_csharp" [
+  label = "<K_sn_csharp> \N|<K_SafeApp> SafeApp|<K_SafeApp.AppBindings> SafeApp.AppBindings|<K_SafeAuthenticator> SafeAuthenticator|<K_SafeApp.Core> SafeApp.Core"
+]
+
+"sn_ffi_utils" [
+  label = "<K_sn_ffi_utils> \N"
+]
+
+"sn_authenticator_mobile" [
+  label = "<K_sn_authenticator_mobile> \N"
+]
+
+"sn_node" [
+  label = "<K_sn_node> \N"
+]
+
+"sn_api" [
+  label = "\N|<K_sn_cli> sn_cli|<K_sn_api> sn_api|<K_sn_ffi> sn_ffi|<K_sn_authd> sn_authd|<K_qjsonrpc> qjsonrpc"
 ]
 
 "self_encryption" [
   label = "<K_self_encryption> \N"
 ]
 
-"safe-authenticator-mobile" [
-  label = "<K_safe-authenticator-mobile> \N"
-]
-
-"safe-api" [
-  label = "\N"
-]
-
-"safe-browser" [
-  label = "<K_safe-browser> \N"
-]
-
-"safe-app-csharp":"K_SafeApp.AppBindings" -> "safe-app-csharp":"K_SafeApp.Core"	[color="grey"]
-"safe-mobile-browser":"K_safe-mobile-browser" -> "safe-app-csharp":"K_safe-app-csharp"
-"safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.AppBindings"	[color="grey"]
-"safe-app-csharp":"K_SafeApp" -> "safe-app-csharp":"K_SafeApp.Core"	[color="grey"]
+"sn_csharp":"K_SafeApp.AppBindings" -> "sn_csharp":"K_SafeApp.Core"	[color="grey"]
+"sn_csharp":"K_SafeApp.AppBindings" -> "sn_api":"K_sn_ffi"
+"sn_api":"K_sn_ffi" -> "sn_api":"K_sn_api"	[color="grey"]
+"sn_api":"K_sn_ffi" -> "sn_client":"K_sn_client"
+"sn_api":"K_sn_ffi" -> "sn_ffi_utils":"K_sn_ffi_utils"
+"sn_browser":"K_sn_browser" -> "sn_nodejs":"K_sn_nodejs"
+"sn_api":"K_sn_authd" -> "sn_api":"K_qjsonrpc"	[color="grey"]
+"sn_api":"K_sn_authd" -> "sn_api":"K_sn_api"	[color="grey"]
+"sn_csharp":"K_SafeAuthenticator" -> "sn_csharp":"K_SafeApp.Core"	[color="grey"]
+"sn_csharp":"K_SafeAuthenticator" -> "sn_api":"K_sn_ffi"
+"sn_csharp":"K_SafeApp" -> "sn_csharp":"K_SafeApp.AppBindings"	[color="grey"]
+"sn_csharp":"K_SafeApp" -> "sn_csharp":"K_SafeApp.Core"	[color="grey"]
+"sn_routing":"K_sn_routing" -> "bls_dkg":"K_bls_dkg"
+"sn_routing":"K_sn_routing" -> "qp2p":"K_qp2p"
+"sn_client":"K_sn_client" -> "qp2p":"K_qp2p"
+"sn_client":"K_sn_client" -> "self_encryption":"K_self_encryption"
+"sn_client":"K_sn_client" -> "sn_data_types":"K_sn_data_types"
+"sn_api":"K_sn_cli" -> "sn_api":"K_sn_api"	[color="grey"]
+"sn_mobile_browser":"K_sn_mobile_browser" -> "sn_csharp":"K_sn_csharp"
+"sn_nodejs":"K_native" -> "sn_api":"K_sn_api"
+"sn_authenticator_mobile":"K_sn_authenticator_mobile" -> "sn_csharp":"K_sn_csharp"
+"sn_api":"K_sn_api" -> "sn_api":"K_qjsonrpc"	[color="grey"]
+"sn_api":"K_sn_api" -> "sn_client":"K_sn_client"
+"sn_node":"K_sn_node" -> "sn_data_types":"K_sn_data_types"
+"sn_node":"K_sn_node" -> "sn_routing":"K_sn_routing"
 }
