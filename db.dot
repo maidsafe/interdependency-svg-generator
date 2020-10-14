@@ -66,7 +66,7 @@ digraph g {
 ]
 
 "sn_api" [
-  label = "\N|<K_sn_cli> sn_cli|<K_sn_api> sn_api|<K_sn_ffi> sn_ffi|<K_sn_authd> sn_authd|<K_qjsonrpc> qjsonrpc"
+  label = "\N|<K_sn_cli> sn_cli|<K_sn_api> sn_api|<K_sn_authd> sn_authd|<K_qjsonrpc> qjsonrpc"
 ]
 
 "self_encryption" [
@@ -74,15 +74,10 @@ digraph g {
 ]
 
 "sn_csharp":"K_SafeApp.AppBindings" -> "sn_csharp":"K_SafeApp.Core"	[color="grey"]
-"sn_csharp":"K_SafeApp.AppBindings" -> "sn_api":"K_sn_ffi"
-"sn_api":"K_sn_ffi" -> "sn_api":"K_sn_api"	[color="grey"]
-"sn_api":"K_sn_ffi" -> "sn_client":"K_sn_client"
-"sn_api":"K_sn_ffi" -> "sn_ffi_utils":"K_sn_ffi_utils"
 "sn_browser":"K_sn_browser" -> "sn_nodejs":"K_sn_nodejs"
 "sn_api":"K_sn_authd" -> "sn_api":"K_qjsonrpc"	[color="grey"]
 "sn_api":"K_sn_authd" -> "sn_api":"K_sn_api"	[color="grey"]
 "sn_csharp":"K_SafeAuthenticator" -> "sn_csharp":"K_SafeApp.Core"	[color="grey"]
-"sn_csharp":"K_SafeAuthenticator" -> "sn_api":"K_sn_ffi"
 "sn_csharp":"K_SafeApp" -> "sn_csharp":"K_SafeApp.AppBindings"	[color="grey"]
 "sn_csharp":"K_SafeApp" -> "sn_csharp":"K_SafeApp.Core"	[color="grey"]
 "sn_routing":"K_sn_routing" -> "bls_dkg":"K_bls_dkg"
@@ -96,6 +91,7 @@ digraph g {
 "sn_authenticator_mobile":"K_sn_authenticator_mobile" -> "sn_csharp":"K_sn_csharp"
 "sn_api":"K_sn_api" -> "sn_api":"K_qjsonrpc"	[color="grey"]
 "sn_api":"K_sn_api" -> "sn_client":"K_sn_client"
+"sn_api":"K_sn_api" -> "sn_data_types":"K_sn_data_types"
 "sn_node":"K_sn_node" -> "sn_data_types":"K_sn_data_types"
 "sn_node":"K_sn_node" -> "sn_routing":"K_sn_routing"
 }
