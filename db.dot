@@ -17,6 +17,10 @@ digraph g {
     arrowsize=0.5
   ];
 
+"xor_name" [
+  label = "<K_xor_name> \N"
+]
+
 "sn_browser" [
   label = "<K_sn_browser> \N"
 ]
@@ -53,10 +57,6 @@ digraph g {
   label = "<K_sn_csharp> \N|<K_SafeApp> SafeApp|<K_SafeApp.AppBindings> SafeApp.AppBindings|<K_SafeAuthenticator> SafeAuthenticator|<K_SafeApp.Core> SafeApp.Core"
 ]
 
-"sn_ffi_utils" [
-  label = "<K_sn_ffi_utils> \N"
-]
-
 "sn_authenticator_mobile" [
   label = "<K_sn_authenticator_mobile> \N"
 ]
@@ -74,24 +74,32 @@ digraph g {
 ]
 
 "sn_csharp":"K_SafeApp.AppBindings" -> "sn_csharp":"K_SafeApp.Core"	[color="grey"]
+"sn_csharp":"K_SafeApp.AppBindings" -> "sn_api":"K_sn_api"
 "sn_browser":"K_sn_browser" -> "sn_nodejs":"K_sn_nodejs"
 "sn_api":"K_sn_authd" -> "sn_api":"K_qjsonrpc"	[color="grey"]
 "sn_api":"K_sn_authd" -> "sn_api":"K_sn_api"	[color="grey"]
 "sn_csharp":"K_SafeAuthenticator" -> "sn_csharp":"K_SafeApp.Core"	[color="grey"]
+"bls_dkg":"K_bls_dkg" -> "xor_name":"K_xor_name"
 "sn_csharp":"K_SafeApp" -> "sn_csharp":"K_SafeApp.AppBindings"	[color="grey"]
 "sn_csharp":"K_SafeApp" -> "sn_csharp":"K_SafeApp.Core"	[color="grey"]
 "sn_routing":"K_sn_routing" -> "bls_dkg":"K_bls_dkg"
 "sn_routing":"K_sn_routing" -> "qp2p":"K_qp2p"
+"sn_routing":"K_sn_routing" -> "xor_name":"K_xor_name"
 "sn_client":"K_sn_client" -> "qp2p":"K_qp2p"
 "sn_client":"K_sn_client" -> "self_encryption":"K_self_encryption"
 "sn_client":"K_sn_client" -> "sn_data_types":"K_sn_data_types"
+"sn_client":"K_sn_client" -> "xor_name":"K_xor_name"
 "sn_api":"K_sn_cli" -> "sn_api":"K_sn_api"	[color="grey"]
+"sn_api":"K_sn_cli" -> "xor_name":"K_xor_name"
+"sn_data_types":"K_sn_data_types" -> "xor_name":"K_xor_name"
 "sn_mobile_browser":"K_sn_mobile_browser" -> "sn_csharp":"K_sn_csharp"
 "sn_nodejs":"K_native" -> "sn_api":"K_sn_api"
 "sn_authenticator_mobile":"K_sn_authenticator_mobile" -> "sn_csharp":"K_sn_csharp"
 "sn_api":"K_sn_api" -> "sn_api":"K_qjsonrpc"	[color="grey"]
 "sn_api":"K_sn_api" -> "sn_client":"K_sn_client"
 "sn_api":"K_sn_api" -> "sn_data_types":"K_sn_data_types"
+"sn_api":"K_sn_api" -> "xor_name":"K_xor_name"
 "sn_node":"K_sn_node" -> "sn_data_types":"K_sn_data_types"
 "sn_node":"K_sn_node" -> "sn_routing":"K_sn_routing"
+"sn_node":"K_sn_node" -> "xor_name":"K_xor_name"
 }
